@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<!-- query문 작성하는 곳 -->
+<mapper namespace="com.care.mybatis.myMapper">
+	<select id="listAll" resultType="dto">
+		select * from mybatis_test
+	</select>
+	<select id="list" resultType="dto">
+		select * from mybatis_test where num=#{num}
+	</select>
+	<insert id="savedata" parameterType="dto">
+		insert into mybatis_test values(#{num},#{name},#{mydate})
+	</insert>
+	<update id="updatedata" parameterType="dto">
+		update mybatis_test set name=#{name}, mydate=#{mydate} where num=#{num}
+	</update>
+	<delete id="delete" parameterType="String">
+		delete from mybatis_test where num=#{num} 
+	</delete>
+</mapper>
+
+
+
